@@ -10,8 +10,15 @@ import TeamStats from './Team-stats.jsx';
 import Player from './Player.jsx';
 
 export default class App extends Component {
-  getPlayers() {
-    return [
+  constructor(props) {
+    super(props);
+
+    // setting up the state
+    this.state = { players: [] };
+  }
+
+  componentWillMount() {
+    this.setState({ players: [
       {
         _id: 1,
         name: "Alex Sanchez",
@@ -48,11 +55,11 @@ export default class App extends Component {
         topSpeed: 7,
         soccerIQ: 5,
       },
-    ];
+    ]});
   }
 
   renderPlayers() {
-    return this.getPlayers().map((player) => (
+    return this.state.players.map((player) => (
       <TeamList key={player._id} player={player} />
     ));
   }
@@ -68,6 +75,7 @@ export default class App extends Component {
           <div className="row">
             <div className="col s12 m7"><Player /></div>
             <div className="col s12 m5">
+              <h2>Team List</h2>
               <Divider />
                 <List>
                   {this.renderPlayers()}
