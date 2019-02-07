@@ -28,78 +28,80 @@ export default class Player extends Component {
           <img src="player.jpg" />
         </CardMedia>
         <CardText>
-          <Chip
-            backgroundColor={blue200}
-            style={styles.chip}
-            >
-              <Avatar size={32} color={blue200} backgroundColor={blue900}>
-                2
-              </Avatar>
-              Passing
-          </Chip>
-          <Chip
-            backgroundColor={blue200}
-            style={styles.chip}
-            >
-              <Avatar size={32} color={blue200} backgroundColor={blue900}>
-                3
-              </Avatar>
-              Dribbling
-          </Chip>
-          <Chip
-            backgroundColor={blue200}
-            style={styles.chip}
-            >
-              <Avatar size={32} color={blue200} backgroundColor={blue900}>
-                2
-              </Avatar>
-              Shooting
-          </Chip>
-          <Chip
-            backgroundColor={blue200}
-            style={styles.chip}
-            >
-              <Avatar size={32} color={blue200} backgroundColor={blue900}>
-                2
-              </Avatar>
-              Marking
-          </Chip>
-          <Chip
-            backgroundColor={blue200}
-            style={styles.chip}
-            >
-              <Avatar size={32} color={blue200} backgroundColor={blue900}>
-                2
-              </Avatar>
-              Tackling
-          </Chip>
-          <Chip
-            backgroundColor={blue200}
-            style={styles.chip}
-            >
-              <Avatar size={32} color={blue200} backgroundColor={blue900}>
-                2
-              </Avatar>
-              Acceleration
-          </Chip>
-          <Chip
-            backgroundColor={blue200}
-            style={styles.chip}
-            >
-              <Avatar size={32} color={blue200} backgroundColor={blue900}>
-                2
-              </Avatar>
-              Top Speed
-          </Chip>
-          <Chip
-            backgroundColor={blue200}
-            style={styles.chip}
-            >
-              <Avatar size={32} color={blue200} backgroundColor={blue900}>
-                2
-              </Avatar>
-              SoccerIQ
-          </Chip>
+          <div style={styles.wrapper}>
+            <Chip
+              backgroundColor={blue200}
+              style={styles.chip}
+              >
+                <Avatar size={32} color={blue200} backgroundColor={blue900}>
+                  8
+                </Avatar>
+                Passing
+            </Chip>
+            <Chip
+              backgroundColor={blue200}
+              style={styles.chip}
+              >
+                <Avatar size={32} color={blue200} backgroundColor={blue900}>
+                  7
+                </Avatar>
+                Dribbling
+            </Chip>
+            <Chip
+              backgroundColor={blue200}
+              style={styles.chip}
+              >
+                <Avatar size={32} color={blue200} backgroundColor={blue900}>
+                  9
+                </Avatar>
+                Shooting
+            </Chip>
+            <Chip
+              backgroundColor={blue200}
+              style={styles.chip}
+              >
+                <Avatar size={32} color={blue200} backgroundColor={blue900}>
+                  2
+                </Avatar>
+                Marking
+            </Chip>
+            <Chip
+              backgroundColor={blue200}
+              style={styles.chip}
+              >
+                <Avatar size={32} color={blue200} backgroundColor={blue900}>
+                  5
+                </Avatar>
+                Tackling
+            </Chip>
+            <Chip
+              backgroundColor={blue200}
+              style={styles.chip}
+              >
+                <Avatar size={32} color={blue200} backgroundColor={blue900}>
+                  7
+                </Avatar>
+                Acceleration
+            </Chip>
+            <Chip
+              backgroundColor={blue200}
+              style={styles.chip}
+              >
+                <Avatar size={32} color={blue200} backgroundColor={blue900}>
+                  7
+                </Avatar>
+                Top Speed
+            </Chip>
+            <Chip
+              backgroundColor={blue200}
+              style={styles.chip}
+              >
+                <Avatar size={32} color={blue200} backgroundColor={blue900}>
+                  9
+                </Avatar>
+                SoccerIQ
+            </Chip>
+          </div>
         </CardText>
         <CardActions>
         </CardActions>
