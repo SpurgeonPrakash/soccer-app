@@ -14,7 +14,8 @@ const PlayerSchema = new SimpleSchema({
   acceleration: { type: Number, defaultValue: 0 },
   topSpeed: { type: Number, defaultValue: 0 },
   soccerIQ: { type: Number, defaultValue: 0 },
-  notes: { type: String, optional true },
+  notes: { type: String, optional: true },
+  owner: { type: String },
 });
 
 Players.attachSchema(PlayerSchema);

@@ -1,10 +1,36 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { Players } from '../api/players';
 
-export default class New extends Component {
+class New extends Component {
+  submitPlayer(event) {
+    event.preventDefault();
+
+    Players.insert({
+      name: this.refs.name.value,
+      team: this.refs.team.value,
+      passing: this.refs.passing.value,
+      dribbling: this.refs.dribbling.value,
+      shooting: this.refs.shooting.value,
+      marking: this.refs.marking.value,
+      tackling: this.refs.tackling.value,
+      acceleration: this.refs.acceleration.value,
+      topSpeed: this.refs.topSpeed.value,
+      soccerIQ: this.refs.soccerIQ.value,
+      notes: this.refs.notes.value,
+      createdAt: new Date(),  // when this object was created
+      owner: Meteor.userId(),
+    });
+
+    console.log("Success player submitted!");
+
+    this.props.history.push('/');
+  }
+
   render() {
     return (
       <div className="row">
-        <form className="col s12">
+        <form className="col s12" onSubmit={this.submitPlayer.bind(this)}>
           <h3>Add a new player</h3>
 
           <div className="row">
@@ -117,3 +143,5 @@ export default class New extends Component {
     )
   }
 }
+
+export default withRouter(New); // withrouter allows us to use the push command to forward to the main page
