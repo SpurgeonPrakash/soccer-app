@@ -5,7 +5,7 @@ import { render } from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import App from '../imports/ui/App.jsx';
-import Example from '../imports/ui/Example.jsx';
+import New from '../imports/ui/New.jsx';
 import Lost from '../imports/ui/Lost.jsx'
 
 //injectTapEventPlugin();
@@ -16,7 +16,7 @@ Meteor.startup(() => {
     <Router>
       <Switch>
         <Route exact path="/" component={App}/> {/*Default path*/}
-        <Route path="/example" component={Example}/>
+        <Route path="/new" component={New}/>
         <Route component={Lost}/>   {/*If neither of those paths*/}
       </Switch>
     </Router>
