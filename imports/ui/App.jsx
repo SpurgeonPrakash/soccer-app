@@ -15,6 +15,7 @@ import TeamList from './Team-list.jsx';
 import TeamStats from './Team-stats.jsx';
 import Player from './Player.jsx';
 import AccountsWrapper from './AccountsWrapper';
+import Edit from './EditPlayer';
 
 const tempPlayer = {
   name: "Temp Player",
@@ -35,8 +36,13 @@ class App extends Component {
     super(props);
 
     // setting up the state
-    this.state = { currentPlayer: tempPlayer };
+    this.state = {
+      currentPlayer: tempPlayer,
+      showEditPlayer: false,
+    };
     this.updateCurrentPlayer = this.updateCurrentPlayer.bind(this);
+    this.showEditForm = this.showEditForm.bind(this);
+    this.showTeamStats = this.showTeamStats.bind(this);
   }
 
   renderPlayers() {
@@ -51,6 +57,27 @@ class App extends Component {
     });
   }
 
+  showEditForm() {
+    this.setState({
+      showEditPlayer: true,
+    });
+  }
+
+  showTeamStats() {
+    this.setState({
+      showEditPlayer: false,
+    });
+  }
+
+  showForm() {
+    if(this.state.showEditPlayer === true) {
+      return ( <Edit currentPlayer={this.state.currentPlayer}
+      showTeamStats={this.showTeamStats}/> );
+    } else {
+      return ( <TeamStats />);
+    }
+  }
+
   render() {
     return (
       <MuiThemeProvider>
@@ -62,7 +89,7 @@ class App extends Component {
             <AccountsWrapper />
           </AppBar>
           <div className="row">
-            <div className="col s12 m7"><Player player={this.state.currentPlayer}/></div>
+            <div className="col s12 m7"><Player player={this.state.currentPlayer} showEditForm={this.showEditForm}/></div>
             <div className="col s12 m5">
               <h2>Team List</h2><Link to="/new" className="waves-effect waves-light btn">Add player</Link>
               <Divider />
@@ -71,7 +98,7 @@ class App extends Component {
                 </List>
               <Divider />
             </div>
-            <div className="col s12 m5"><TeamStats /></div>
+            <div className="col s12 m5">{this.showForm()}</div>
           </div>
         </div>
       </MuiThemeProvider>

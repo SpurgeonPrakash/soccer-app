@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import { Players } from '../api/players';
 
-class New extends Component {
-  submitPlayer(event) {
+export default class Edit extends Component {
+
+  showTeamStats() {
+    this.props.showTeamStats();
+  }
+
+  editPlayer(event) {
     event.preventDefault();
 
     let player = {
+      _id: this.props.currentPlayer._id,
       name: this.refs.name.value,
       team: this.refs.team.value,
       passing: this.refs.passing.value,
@@ -24,35 +28,38 @@ class New extends Component {
 
     //console.log("Success player submitted!");
 
-    Meteor.call('insertPlayer', player, (error) => { // insertPlayer is in ../server/methods.js
+    Meteor.call('updatePlayer', player, (error) => { // insertPlayer is in ../server/methods.js
       if (error) {
         alert("Oops! Something went wrong: " + error.reason);
       } else {
-        alert("Player added!");
-        this.props.history.push('/');
+        alert("Player updated!");
+        this.showTeamStats();
       }
     });
   }
 
   render() {
+
+    const currentPlayer = this.props.currentPlayer;
+
     return (
       <div className="row">
-        <form className="col s12" onSubmit={this.submitPlayer.bind(this)}>
-          <h3>Add a new player</h3>
+        <form className="col s12" onSubmit={this.editPlayer.bind(this)}>
+          <h3>Edit Player</h3>
 
           <div className="row">
             <div className="input-field col s6">
-              <input placeholder="Name" ref="name" type="text" className="validate"/>
+              <input placeholder="Name" ref="name" type="text" className="validate" defaultValue={currentPlayer.name}/>
             </div>
             <div className="input-field col s6">
-              <input placeholder="Team" ref="team" type="text" className="validate"/>
+              <input placeholder="Team" ref="team" type="text" className="validate" defaultValue={currentPlayer.team}/>
             </div>
           </div>
 
           <div className="row">
             <div className="col s6">
               <h5>Passing</h5>
-              <select className="browser-default" ref="passing">
+              <select className="browser-default" ref="passing" defaultValue={currentPlayer.passing}>
                 <option value="0">0 - No skills</option>
                 <option value="1">1 - Needs improvement</option>
                 <option value="2">2 - Decent skill</option>
@@ -61,7 +68,7 @@ class New extends Component {
             </div>
             <div className="col s6">
               <h5>Dribbling</h5>
-              <select className="browser-default" ref="dribbling">
+              <select className="browser-default" ref="dribbling" defaultValue={currentPlayer.dribbling}>
                 <option value="0">0 - No skills</option>
                 <option value="1">1 - Needs improvement</option>
                 <option value="2">2 - Decent skill</option>
@@ -73,7 +80,7 @@ class New extends Component {
           <div className="row">
             <div className="col s6">
               <h5>Shooting</h5>
-              <select className="browser-default" ref="shooting">
+              <select className="browser-default" ref="shooting" defaultValue={currentPlayer.shooting}>
                 <option value="0">0 - No skills</option>
                 <option value="1">1 - Needs improvement</option>
                 <option value="2">2 - Decent skill</option>
@@ -82,7 +89,7 @@ class New extends Component {
             </div>
             <div className="col s6">
               <h5>Marking</h5>
-              <select className="browser-default" ref="marking">
+              <select className="browser-default" ref="marking" defaultValue={currentPlayer.marking}>
                 <option value="0">0 - No skills</option>
                 <option value="1">1 - Needs improvement</option>
                 <option value="2">2 - Decent skill</option>
@@ -94,7 +101,7 @@ class New extends Component {
           <div className="row">
             <div className="col s6">
               <h5>Tackling</h5>
-              <select className="browser-default" ref="tackling">
+              <select className="browser-default" ref="tackling" defaultValue={currentPlayer.tackling}>
                 <option value="0">0 - No skills</option>
                 <option value="1">1 - Needs improvement</option>
                 <option value="2">2 - Decent skill</option>
@@ -103,7 +110,7 @@ class New extends Component {
             </div>
             <div className="col s6">
               <h5>Acceleration</h5>
-              <select className="browser-default" ref="acceleration">
+              <select className="browser-default" ref="acceleration" defaultValue={currentPlayer.acceleration}>
                 <option value="0">0 - No skills</option>
                 <option value="1">1 - Needs improvement</option>
                 <option value="2">2 - Decent skill</option>
@@ -115,7 +122,7 @@ class New extends Component {
           <div className="row">
             <div className="col s6">
               <h5>Top Speed</h5>
-              <select className="browser-default" ref="topSpeed">
+              <select className="browser-default" ref="topSpeed" defaultValue={currentPlayer.topSpeed}>
                 <option value="0">0 - No skills</option>
                 <option value="1">1 - Needs improvement</option>
                 <option value="2">2 - Decent skill</option>
@@ -124,7 +131,7 @@ class New extends Component {
             </div>
             <div className="col s6">
               <h5>Soccer IQ</h5>
-              <select className="browser-default" ref="soccerIQ">
+              <select className="browser-default" ref="soccerIQ" defaultValue={currentPlayer.soccerIQ}>
                 <option value="0">0 - No skills</option>
                 <option value="1">1 - Needs improvement</option>
                 <option value="2">2 - Decent skill</option>
@@ -135,7 +142,7 @@ class New extends Component {
 
           <div className="row">
             <div className="col s6">
-              <textarea placeholder="Notes" ref="notes" className="materialize-textarea"/>
+              <textarea placeholder="Notes" ref="notes" className="materialize-textarea" defaultValue={currentPlayer.notes}/>
             </div>
             <div className="col s6">
               <button className="btn waves-effect waves-light" type="submit" name="action">
@@ -151,4 +158,4 @@ class New extends Component {
   }
 }
 
-export default withRouter(New); // withrouter allows us to use the push command to forward to the main page
+//export default withRouter(New); // withrouter allows us to use the push command to forward to the main page
