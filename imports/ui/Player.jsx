@@ -20,10 +20,14 @@ const styles = {
 
 export default class Player extends Component {
   render() {
+    const player = this.props.player;
+    const offence = player.dribbling + player.passing;
+    const defence = player.marking + player.tackling;
+
     return (
       <Card>
         <CardMedia
-          overlay={<CardTitle title="Emmanuel Henri" subtitle="Offense: 9 - Defense: 8" />}
+          overlay={<CardTitle title={player.name} subtitle={`Offence: ${offence} - Defense: ${defence}`} />}
         >
           <img src="player.jpg" />
         </CardMedia>
@@ -34,7 +38,7 @@ export default class Player extends Component {
               style={styles.chip}
               >
                 <Avatar size={32} color={blue200} backgroundColor={blue900}>
-                  8
+                  {player.passing}
                 </Avatar>
                 Passing
             </Chip>
@@ -43,7 +47,7 @@ export default class Player extends Component {
               style={styles.chip}
               >
                 <Avatar size={32} color={blue200} backgroundColor={blue900}>
-                  7
+                  {player.dribbling}
                 </Avatar>
                 Dribbling
             </Chip>
@@ -52,7 +56,7 @@ export default class Player extends Component {
               style={styles.chip}
               >
                 <Avatar size={32} color={blue200} backgroundColor={blue900}>
-                  9
+                  {player.shooting}
                 </Avatar>
                 Shooting
             </Chip>
@@ -61,7 +65,7 @@ export default class Player extends Component {
               style={styles.chip}
               >
                 <Avatar size={32} color={blue200} backgroundColor={blue900}>
-                  2
+                  {player.marking}
                 </Avatar>
                 Marking
             </Chip>
@@ -70,7 +74,7 @@ export default class Player extends Component {
               style={styles.chip}
               >
                 <Avatar size={32} color={blue200} backgroundColor={blue900}>
-                  5
+                  {player.tackling}
                 </Avatar>
                 Tackling
             </Chip>
@@ -79,7 +83,7 @@ export default class Player extends Component {
               style={styles.chip}
               >
                 <Avatar size={32} color={blue200} backgroundColor={blue900}>
-                  7
+                  {player.acceleration}
                 </Avatar>
                 Acceleration
             </Chip>
@@ -88,7 +92,7 @@ export default class Player extends Component {
               style={styles.chip}
               >
                 <Avatar size={32} color={blue200} backgroundColor={blue900}>
-                  7
+                  {player.topSpeed}
                 </Avatar>
                 Top Speed
             </Chip>
@@ -97,7 +101,7 @@ export default class Player extends Component {
               style={styles.chip}
               >
                 <Avatar size={32} color={blue200} backgroundColor={blue900}>
-                  9
+                  {player.soccerIQ}
                 </Avatar>
                 SoccerIQ
             </Chip>

@@ -16,61 +16,39 @@ import TeamStats from './Team-stats.jsx';
 import Player from './Player.jsx';
 import AccountsWrapper from './AccountsWrapper';
 
+const tempPlayer = {
+  name: "Temp Player",
+  team: "Lynda",
+  passing: 2,
+  dribbling: 2,
+  shooting: 3,
+  marking: 1,
+  tackling: 3,
+  acceleration: 2,
+  topSpeed: 2,
+  soccerIQ: 1,
+  notes: "This player is only temporary",
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
 
     // setting up the state
-    this.state = { players: [] };
+    this.state = { currentPlayer: tempPlayer };
+    this.updateCurrentPlayer = this.updateCurrentPlayer.bind(this);
   }
-
-  /*
-  componentWillMount() {
-    this.setState({ players: [
-      {
-        _id: 1,
-        name: "Alex Sanchez",
-        passing: 7,
-        dribbling: 8,
-        shooting: 7,
-        marking: 7,
-        tackling: 4,
-        acceleration: 9,
-        topSpeed: 8,
-        soccerIQ: 7,
-      },
-      {
-        _id: 2,
-        name: "Sergey Ramos",
-        passing: 7,
-        dribbling: 8,
-        shooting: 5,
-        marking: 9,
-        tackling: 9,
-        acceleration: 7,
-        topSpeed: 7,
-        soccerIQ: 5,
-      },
-      {
-        _id: 3,
-        name: "Brick Wall",
-        passing: 7,
-        dribbling: 8,
-        shooting: 5,
-        marking: 10,
-        tackling: 10,
-        acceleration: 7,
-        topSpeed: 7,
-        soccerIQ: 5,
-      },
-    ]});
-  }
-  */
 
   renderPlayers() {
     return this.props.players.map((player) => (
-      <TeamList key={player._id} player={player} />
+      <TeamList key={player._id} player={player} updateCurrentPlayer={this.updateCurrentPlayer}/>
     ));
+  }
+
+  updateCurrentPlayer(player) {
+    this.setState({
+      currentPlayer: player,
+    });
   }
 
   render() {
@@ -84,7 +62,7 @@ class App extends Component {
             <AccountsWrapper />
           </AppBar>
           <div className="row">
-            <div className="col s12 m7"><Player /></div>
+            <div className="col s12 m7"><Player player={this.state.currentPlayer}/></div>
             <div className="col s12 m5">
               <h2>Team List</h2><Link to="/new" className="waves-effect waves-light btn">Add player</Link>
               <Divider />

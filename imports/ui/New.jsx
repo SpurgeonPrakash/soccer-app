@@ -54,18 +54,18 @@ class New extends Component {
               <h5>Passing</h5>
               <select className="browser-default" ref="passing">
                 <option value="0">0 - No skills</option>
-                <option value="0">1 - Needs improvement</option>
-                <option value="0">2 - Decent skill</option>
-                <option value="0">3 - Beast mode</option>
+                <option value="1">1 - Needs improvement</option>
+                <option value="2">2 - Decent skill</option>
+                <option value="3">3 - Beast mode</option>
               </select>
             </div>
             <div className="col s6">
               <h5>Dribbling</h5>
               <select className="browser-default" ref="dribbling">
                 <option value="0">0 - No skills</option>
-                <option value="0">1 - Needs improvement</option>
-                <option value="0">2 - Decent skill</option>
-                <option value="0">3 - Beast mode</option>
+                <option value="1">1 - Needs improvement</option>
+                <option value="2">2 - Decent skill</option>
+                <option value="3">3 - Beast mode</option>
               </select>
             </div>
           </div>
@@ -75,18 +75,18 @@ class New extends Component {
               <h5>Shooting</h5>
               <select className="browser-default" ref="shooting">
                 <option value="0">0 - No skills</option>
-                <option value="0">1 - Needs improvement</option>
-                <option value="0">2 - Decent skill</option>
-                <option value="0">3 - Beast mode</option>
+                <option value="1">1 - Needs improvement</option>
+                <option value="2">2 - Decent skill</option>
+                <option value="3">3 - Beast mode</option>
               </select>
             </div>
             <div className="col s6">
               <h5>Marking</h5>
               <select className="browser-default" ref="marking">
                 <option value="0">0 - No skills</option>
-                <option value="0">1 - Needs improvement</option>
-                <option value="0">2 - Decent skill</option>
-                <option value="0">3 - Beast mode</option>
+                <option value="1">1 - Needs improvement</option>
+                <option value="2">2 - Decent skill</option>
+                <option value="3">3 - Beast mode</option>
               </select>
             </div>
           </div>
@@ -96,18 +96,18 @@ class New extends Component {
               <h5>Tackling</h5>
               <select className="browser-default" ref="tackling">
                 <option value="0">0 - No skills</option>
-                <option value="0">1 - Needs improvement</option>
-                <option value="0">2 - Decent skill</option>
-                <option value="0">3 - Beast mode</option>
+                <option value="1">1 - Needs improvement</option>
+                <option value="2">2 - Decent skill</option>
+                <option value="3">3 - Beast mode</option>
               </select>
             </div>
             <div className="col s6">
               <h5>Acceleration</h5>
               <select className="browser-default" ref="acceleration">
                 <option value="0">0 - No skills</option>
-                <option value="0">1 - Needs improvement</option>
-                <option value="0">2 - Decent skill</option>
-                <option value="0">3 - Beast mode</option>
+                <option value="1">1 - Needs improvement</option>
+                <option value="2">2 - Decent skill</option>
+                <option value="3">3 - Beast mode</option>
               </select>
             </div>
           </div>
@@ -117,18 +117,18 @@ class New extends Component {
               <h5>Top Speed</h5>
               <select className="browser-default" ref="topSpeed">
                 <option value="0">0 - No skills</option>
-                <option value="0">1 - Needs improvement</option>
-                <option value="0">2 - Decent skill</option>
-                <option value="0">3 - Beast mode</option>
+                <option value="1">1 - Needs improvement</option>
+                <option value="2">2 - Decent skill</option>
+                <option value="3">3 - Beast mode</option>
               </select>
             </div>
             <div className="col s6">
               <h5>Soccer IQ</h5>
               <select className="browser-default" ref="soccerIQ">
                 <option value="0">0 - No skills</option>
-                <option value="0">1 - Needs improvement</option>
-                <option value="0">2 - Decent skill</option>
-                <option value="0">3 - Beast mode</option>
+                <option value="1">1 - Needs improvement</option>
+                <option value="2">2 - Decent skill</option>
+                <option value="3">3 - Beast mode</option>
               </select>
             </div>
           </div>
